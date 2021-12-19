@@ -30,7 +30,7 @@ namespace PrimitiveObsessionAnalyzer
 
             context.RegisterSyntaxNodeAction(AnalyzeDeclaration, SyntaxKind.LocalDeclarationStatement);
 
-          //  context.RegisterSyntaxNodeAction(AnalyzeParameter, SyntaxKind.Parameter);
+            //  context.RegisterSyntaxNodeAction(AnalyzeParameter, SyntaxKind.Parameter);
 
             context.RegisterSyntaxNodeAction(AnlyzeReturnType, SyntaxKind.PredefinedType);
         }
@@ -38,8 +38,8 @@ namespace PrimitiveObsessionAnalyzer
         {
             var predefinedTypeDeclaration = (PredefinedTypeSyntax)context.Node;
             var symbolInfo = context.SemanticModel.GetSymbolInfo(predefinedTypeDeclaration);
-            AnalyzeSymbol(symbolInfo, context, predefinedTypeDeclaration.GetLocation(), 
-                context.Node.Parent.DescendantTokens().OfType<SyntaxToken>().FirstOrDefault( x=> x.Kind() == SyntaxKind.IdentifierToken).Text);
+            AnalyzeSymbol(symbolInfo, context, predefinedTypeDeclaration.GetLocation(),
+                context.Node.Parent.DescendantTokens().OfType<SyntaxToken>().FirstOrDefault(x => x.Kind() == SyntaxKind.IdentifierToken).Text);
         }
 
         private void AnalyzeDeclaration(SyntaxNodeAnalysisContext context)
@@ -54,11 +54,11 @@ namespace PrimitiveObsessionAnalyzer
             var typeSymbol = ((ITypeSymbol)symbolInfo.Symbol);
             if (symbolInfo.Symbol != null
                 && symbolInfo.Symbol.Name != "T"
-                && typeSymbol  != null 
+                && typeSymbol != null
                 && typeSymbol.SpecialType != SpecialType.System_Void
                 && typeSymbol.SpecialType != SpecialType.None)
             {
-                if (symbolInfo.Symbol.Name == "String" || typeSymbol.BaseType.Name == "ValueType" )
+                if (symbolInfo.Symbol.Name == "String" || typeSymbol.BaseType.Name == "ValueType")
                 {
                     var diagnostic = Diagnostic.Create(Rule, location, declarator);
 

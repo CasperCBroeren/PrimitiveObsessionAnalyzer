@@ -3,7 +3,7 @@
   <Metadata>
     <Identity Id="PrimitiveObsessionAnalyzer.4e8f98e3-ce4f-4125-880b-39e9afce6d9b" Version="1.0" Language="en-US" Publisher="CasperCBroeren"/>
     <DisplayName>PrimitiveObsessionAnalyzer</DisplayName>
-    <Description xml:space="preserve">This is a primitive obsession diagnostic extension to help point out primitives or value types in need of change.</Description>
+    <Description xml:space="preserve">This is analyzer to show primitive obsession in your code. It detects strings, ints, and other types in your code and suggests to not use them plainly but use a primitive or value-type object for cleaner code.</Description>
   </Metadata>
   <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0,)" />

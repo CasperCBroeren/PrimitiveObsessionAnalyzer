@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PrimitiveObsessionAnalyzer.CodeFixes\PrimitiveObsessionAnalyzer.CodeFixes.csproj" />
     <ProjectReference Include="..\PrimitiveObsessionAnalyzer\PrimitiveObsessionAnalyzer.csproj" />
   </ItemGroup>
 

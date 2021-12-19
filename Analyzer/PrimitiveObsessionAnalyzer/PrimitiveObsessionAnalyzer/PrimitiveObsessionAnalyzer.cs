@@ -51,9 +51,14 @@ namespace PrimitiveObsessionAnalyzer
 
         private void AnalyzeSymbol(SymbolInfo symbolInfo, SyntaxNodeAnalysisContext context, Location location, string declarator)
         {
-            if (symbolInfo.Symbol != null && symbolInfo.Symbol.Name != "Void" && symbolInfo.Symbol.Name != "T")
+            var typeSymbol = ((ITypeSymbol)symbolInfo.Symbol);
+            if (symbolInfo.Symbol != null
+                && symbolInfo.Symbol.Name != "T"
+                && typeSymbol  != null 
+                && typeSymbol.SpecialType != SpecialType.System_Void
+                && typeSymbol.SpecialType != SpecialType.None)
             {
-                if (symbolInfo.Symbol.Name == "String" || ((ITypeSymbol)symbolInfo.Symbol).BaseType.Name == "ValueType")
+                if (symbolInfo.Symbol.Name == "String" || typeSymbol.BaseType.Name == "ValueType" )
                 {
                     var diagnostic = Diagnostic.Create(Rule, location, declarator);
 

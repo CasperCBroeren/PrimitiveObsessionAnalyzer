@@ -1,8 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
-using VerifyCS = PrimitiveObsessionAnalyzer.Test.CSharpCodeFixVerifier<
-    PrimitiveObsessionAnalyzer.PrimitiveObsessionAnalyzer,
-    PrimitiveObsessionAnalyzer.PrimitiveObsessionAnalyzerCodeFixProvider>;
+using VerifyCS = PrimitiveObsessionAnalyzer.Test.CSharpAnalyzerVerifier<
+    PrimitiveObsessionAnalyzer.PrimitiveObsessionAnalyzer>;
 
 namespace PrimitiveObsessionAnalyzer.Test
 {
@@ -95,5 +94,36 @@ namespace PrimitiveObsessionAnalyzer.Test
             var expectedParameter = VerifyCS.Diagnostic("PrimitiveObsessionAnalyzer").WithSpan(13, 37, 13, 40).WithArguments("birthYear");
             await VerifyCS.VerifyAnalyzerAsync(test, expectedMethod, expectedParameter);
         }
+
+        [TestMethod]
+        public async Task WhenValueIsStructOrClass_ExpectAnalyzerToIgnore()
+        {
+            var test = @"
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Diagnostics;
+
+    namespace ConsoleApplication1
+    {
+        public struct Animal
+        {
+        }
+        public class Foo
+        {   
+           public void AgeCalculator()
+            {
+               var a = new Animal();
+               var f = new Foo();
+            }
+        }
+    }";
+            
+            await VerifyCS.VerifyAnalyzerAsync(test);
+        }
+
+
     }
 }

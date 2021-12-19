@@ -3,7 +3,7 @@
   <Metadata>
     <Identity Id="PrimitiveObsessionAnalyzer.4e8f98e3-ce4f-4125-880b-39e9afce6d9b" Version="1.0" Language="en-US" Publisher="CasperCBroeren"/>
     <DisplayName>PrimitiveObsessionAnalyzer</DisplayName>
-    <Description xml:space="preserve">This is a primitive obsession diagnostic extension for the .NET Compiler Platform ("Roslyn").</Description>
+    <Description xml:space="preserve">This is a primitive obsession diagnostic extension to help point out primitives or value types in need of change.</Description>
   </Metadata>
   <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0,)" />
@@ -14,8 +14,6 @@
   <Assets>
     <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="PrimitiveObsessionAnalyzer" Path="|PrimitiveObsessionAnalyzer|"/>
     <Asset Type="Microsoft.VisualStudio.Analyzer" d:Source="Project" d:ProjectName="PrimitiveObsessionAnalyzer" Path="|PrimitiveObsessionAnalyzer|"/>
-    <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="PrimitiveObsessionAnalyzer.CodeFixes" Path="|PrimitiveObsessionAnalyzer.CodeFixes|"/>
-    <Asset Type="Microsoft.VisualStudio.Analyzer" d:Source="Project" d:ProjectName="PrimitiveObsessionAnalyzer.CodeFixes" Path="|PrimitiveObsessionAnalyzer.CodeFixes|"/>
   </Assets>
   <Prerequisites>
     <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,)" DisplayName="Visual Studio core editor" />

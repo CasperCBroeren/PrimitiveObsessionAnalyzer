@@ -27,7 +27,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PrimitiveObsessionAnalyzer.CodeFixes\PrimitiveObsessionAnalyzer.CodeFixes.csproj" />
     <ProjectReference Include="..\PrimitiveObsessionAnalyzer\PrimitiveObsessionAnalyzer.csproj" />
   </ItemGroup>
 
@@ -37,8 +36,7 @@
 
   <Target Name="_AddAnalyzersToOutput">
     <ItemGroup>
-      <TfmSpecificPackageFile Include="$(OutputPath)\PrimitiveObsessionAnalyzer.dll" PackagePath="analyzers/dotnet/cs" />
-      <TfmSpecificPackageFile Include="$(OutputPath)\PrimitiveObsessionAnalyzer.CodeFixes.dll" PackagePath="analyzers/dotnet/cs" />
+      <TfmSpecificPackageFile Include="$(OutputPath)\PrimitiveObsessionAnalyzer.dll" PackagePath="analyzers/dotnet/cs" />      
     </ItemGroup>
   </Target>
 
